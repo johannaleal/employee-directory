@@ -12,22 +12,22 @@ export default class MainContainer extends Component {
     }
 
     componentDidMount() {
-        API.getEmployees().then(apiResults => {
-            // console.log("This is our results: ", answers.data.results);
-            this.setState({
-                employees: apiResults.data.results
-            })
-
-        })
-    }
+        API.getEmployees()
+        .then(res => {this.setState({employees: res.data.results})})
+        .catch(err => console.log(err))
+    };
+    
+    handleInputChange = event => {
+        this.setState({
+            search: event.target.value
+        });
+    };
 
     render() {
         return (
             <div>
-                {/* <SearchBar /> */}
-                <h1>Hello</h1>
+                <SearchBar handleInputChange={this.handleInputChange} search={this.state.search} />
                 <EmployeeTable employees={this.state.employees} />
-               
             </div>
         )
     }
