@@ -4,20 +4,16 @@ function SearchBar(props) {
   return (
     <form>
       <div className="form-group">
-        <label htmlFor="search">Search:</label>
+        <label htmlFor="search">Search by employee name:</label>
         <input
           onChange={props.handleInputChange}
-          value={props.value}
+          value={props.search}
           name="search"
           type="text"
           className="form-control"
-          placeholder="Search For an Employee"
+          placeholder="Search Directory for an Employee"
           id="search"
         />
-        <br />
-        <button onClick={props.handleFormSubmit} className="btn btn-primary">
-          Search
-        </button>
       </div>
     </form>
   );
