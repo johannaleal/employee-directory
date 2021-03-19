@@ -7,7 +7,7 @@ function EmployeeTable(props) {
     <table>
         <thead> 
             <tr>
-              <th>Picture</th>
+              <th></th>
               <th>Name</th>
               <th>City</th>
               <th>State</th>
