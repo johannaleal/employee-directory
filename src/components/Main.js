@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import API from "../utils/API";
-import Header from "./Header/Header";
+import Header from "./Header";
 import SearchBar from "./SearchBar";
-import EmployeeTable from './EmployeeTable';
+import EmployeeTable from "./EmployeeTable"
 
 export default class Main extends Component {
 
