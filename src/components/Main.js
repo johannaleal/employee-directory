@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import API from "../utils/API";
+import Header from "./Header/Header";
 import SearchBar from "./SearchBar";
 import EmployeeTable from './EmployeeTable';
 
-export default class MainContainer extends Component {
+export default class Main extends Component {
 
     state = {
         sortOrder: "",
@@ -26,6 +27,7 @@ export default class MainContainer extends Component {
     render() {
         return (
             <div>
+                <Header />
                 <SearchBar handleInputChange={this.handleInputChange} search={this.state.search} />
                 <EmployeeTable employees={this.state.employees} />
             </div>
