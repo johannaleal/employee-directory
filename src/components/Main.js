@@ -96,6 +96,8 @@ export default class Main extends Component {
                     search={this.state.search} 
                     sortByName={this.sortByName} 
                     sortByState={this.sortByState}    
+                    sortNameOrder={this.state.sortNameOrder} 
+                    sortStateOrder={this.state.sortStateOrder}
                 />
             </div>
         )
