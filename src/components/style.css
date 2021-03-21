@@ -8,6 +8,15 @@ thead {
     font-size: large;
 }
 
+input[type=text] {
+    border: 2px solid darkgreen;
+    background-color: #dee2e6;
+}
+
+.searchbar-label {
+    font-weight: bold;
+}
+
 .header {
     font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     padding: 20px;
@@ -25,4 +34,27 @@ thead {
 .img-col {
     align-content: center;
 }
+
+.up-arrow {
+    width: 0;
+    height: 0;
+    border: solid 5px transparent;
+    background: transparent;
+    border-bottom: solid 7px black;
+    border-top-width: 0;
+    cursor: pointer;
+}
+
+.down-arrow {
+    width: 0;
+    height: 0;
+    border: solid 5px transparent;
+    background: transparent;
+    border-top: solid 7px black;
+    border-bottom-width: 0;
+    margin-top:1px;
+    cursor: pointer;
+}
+
+
 
