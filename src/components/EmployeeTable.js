@@ -1,7 +1,9 @@
 import React from "react";
+import {FaRegArrowAltCircleDown, FaRegArrowAltCircleUp} from "react-icons/fa";
 import "./style.css";
 
-function EmployeeTable(props) {
+const EmployeeTable = (props) => {
+
   return (
     <div className="row">
       <div className="col-md-1"></div>
@@ -10,9 +12,17 @@ function EmployeeTable(props) {
             <thead> 
               <tr>
                 <th></th>
-                <th>Name</th>
+                <th>
+                  Name&nbsp;
+                  <FaRegArrowAltCircleDown className="sort" onClick={props.sortByName} />
+                  {/* <FaRegArrowAltCircleUp /> */}
+                </th>
                 <th>City</th>
-                <th>State</th>
+                <th>
+                  State&nbsp;
+                    <FaRegArrowAltCircleDown className="sort" onClick={props.sortByState} />
+                    {/* <FaRegArrowAltCircleUp /> */}
+                </th>
                 <th>Email</th>
                 <th>Phone</th>
               </tr>
@@ -21,8 +31,8 @@ function EmployeeTable(props) {
             <tbody>
               {props.employees.map(employee => 
                 (employee.name.first.toLowerCase().includes(props.search) || 
-                employee.name.last.toLowerCase().includes(props.search)) ?
-                  <tr key={employee.login.uuid}>
+                employee.name.last.toLowerCase().includes(props.search)) 
+                ? <tr key={employee.login.uuid}>
                     <td className="img-col"><img className="img-fluid" src={employee.picture.medium} alt="thumbnail"></img></td>
                     <td>{employee.name.first} {employee.name.last}</td>
                     <td>{employee.location.city}</td>
@@ -30,8 +40,7 @@ function EmployeeTable(props) {
                     <td><a href={"mailto:" + employee.email} target="_blank" rel="noreferrer">{employee.email}</a></td>
                     <td>{employee.phone}</td>
                   </tr>
-              :
-              null
+              : null
               )}
             </tbody>
         </table>
