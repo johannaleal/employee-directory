@@ -8,7 +8,8 @@ export default class Main extends Component {
 
     state = {
         employees: [],
-        sortOrder: "",
+        sortName: "",
+        sortCity: "",
         search: ""
     }
 
@@ -24,33 +25,6 @@ export default class Main extends Component {
                 search: event.target.value.toLowerCase()
             })
         };
-        console.log(event.target.value);
-        // let currentEmployees = [];
-        // let newEmployees = [];
-
-        // if (event.target.name === "search") {
-        //     console.log("state.employees=", this.state.employees);
-
-        //     currentEmployees = this.state.employees;
-        //     newEmployees = currentEmployees.filter(employee => {
-        //         const lc = employee.name.first.toLowerCase();
-
-        //         console.log("lc=", lc);
-        //         const filter = event.target.value.toLowerCase();
-        //         console.log("filter=", filter);
-        //         return lc.includes(filter);
-        //     })
-        //     this.setState({
-        //         search: event.target.value
-        //     });
-        // }
-        // else {
-        //     newEmployees = this.state.employees;
-        // }
-
-        // this.setState({
-        //     employees: newEmployees
-        // })
     };
 
     render() {
