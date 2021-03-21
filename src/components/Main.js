@@ -8,13 +8,13 @@ export default class Main extends Component {
 
     state = {
         employees: [],
-        sortName: "",
-        sortCity: "",
+        sortNameOrder: "",
+        sortStateOrder: "",
         search: ""
     }
 
     componentDidMount() {
-        API.getEmployees()
+        API.getData()
         .then(res => {this.setState({employees: res.data.results})})
         .catch(err => console.log(err))
     };
@@ -27,12 +27,76 @@ export default class Main extends Component {
         };
     };
 
+    sortByName = () => {
+        let newSortOrder;
+
+        switch (this.state.sortNameOrder) {
+            case "asc": newSortOrder = "desc";
+                break;
+            case "desc": newSortOrder = "asc";
+                break;
+            default: newSortOrder = "asc";
+                break;
+        };
+
+        const sortedEmployees = this.state.employees.sort((a, b) => {
+            if (a.name.first < b.name.first) {
+                return newSortOrder === "asc" ? -1 : 1;
+            }
+            if (a.name.first > b.name.first) {
+                return newSortOrder === "asc" ? 1: -1;
+            }
+            return 0;
+        });
+
+        this.setState({
+            sortNameOrder: newSortOrder,
+            employees: sortedEmployees
+        });
+    }
+
+    sortByState = () => {
+        let newSortOrder;
+
+        switch (this.state.sortStateOrder) {
+            case "asc": newSortOrder = "desc";
+                break;
+            case "desc": newSortOrder = "asc";
+                break;
+            default: newSortOrder = "asc";
+                break;
+        };
+
+        const sortedEmployees = this.state.employees.sort((a, b) => {
+            if (a.location.state < b.location.state) {
+                return newSortOrder === "asc" ? -1 : 1;
+            }
+            if (a.location.state > b.location.state) {
+                return newSortOrder === "asc" ? 1: -1;
+            }
+            return 0;
+        });
+
+        this.setState({
+            sortStateOrder: newSortOrder,
+            employees: sortedEmployees
+        });
+    }
+
     render() {
         return (
             <div>
                 <Header />
-                <SearchBar handleInputChange={this.handleInputChange} search={this.state.search} />
-                <EmployeeTable employees={this.state.employees} search={this.state.search} />
+                <SearchBar 
+                    handleInputChange={this.handleInputChange} 
+                    search={this.state.search} 
+                />
+                <EmployeeTable 
+                    employees={this.state.employees} 
+                    search={this.state.search} 
+                    sortByName={this.sortByName} 
+                    sortByState={this.sortByState}    
+                />
             </div>
         )
     }

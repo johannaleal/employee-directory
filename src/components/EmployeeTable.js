@@ -2,7 +2,8 @@ import React from "react";
 import {FaRegArrowAltCircleDown, FaRegArrowAltCircleUp} from "react-icons/fa";
 import "./style.css";
 
-function EmployeeTable(props) {
+const EmployeeTable = (props) => {
+
   return (
     <div className="row">
       <div className="col-md-1"></div>
@@ -13,14 +14,14 @@ function EmployeeTable(props) {
                 <th></th>
                 <th>
                   Name&nbsp;
-                  <FaRegArrowAltCircleDown />
-                  <FaRegArrowAltCircleUp />
+                  <FaRegArrowAltCircleDown className="sort" onClick={props.sortByName} />
+                  {/* <FaRegArrowAltCircleUp /> */}
                 </th>
                 <th>City</th>
                 <th>
                   State&nbsp;
-                  <FaRegArrowAltCircleDown />
-                  <FaRegArrowAltCircleUp />
+                    <FaRegArrowAltCircleDown className="sort" onClick={props.sortByState} />
+                    {/* <FaRegArrowAltCircleUp /> */}
                 </th>
                 <th>Email</th>
                 <th>Phone</th>

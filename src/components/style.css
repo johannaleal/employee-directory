@@ -34,3 +34,7 @@ input[type=text] {
 .img-col {
     align-content: center;
 }
+
+.sort {
+    cursor: pointer;
+}
