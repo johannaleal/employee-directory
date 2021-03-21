@@ -14,14 +14,22 @@ const EmployeeTable = (props) => {
                 <th></th>
                 <th>
                   Name&nbsp;
-                  <FaRegArrowAltCircleDown className="sort" onClick={props.sortByName} />
-                  {/* <FaRegArrowAltCircleUp /> */}
+                  {props.sortNameOrder === "asc" 
+                  ? 
+                    <FaRegArrowAltCircleDown className="sort" onClick={props.sortByName} />
+                  :
+                    <FaRegArrowAltCircleUp className="sort" onClick={props.sortByName} />
+                  }
                 </th>
                 <th>City</th>
                 <th>
                   State&nbsp;
+                  {props.sortStateOrder === "asc"
+                  ?
                     <FaRegArrowAltCircleDown className="sort" onClick={props.sortByState} />
-                    {/* <FaRegArrowAltCircleUp /> */}
+                  :
+                    <FaRegArrowAltCircleUp className="sort" onClick={props.sortByState} />
+                  }
                 </th>
                 <th>Email</th>
                 <th>Phone</th>
