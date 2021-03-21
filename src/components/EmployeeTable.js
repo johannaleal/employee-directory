@@ -17,8 +17,11 @@ function EmployeeTable(props) {
                 <th>Phone</th>
               </tr>
             </thead>
+
             <tbody>
-              {props.employees.map(employee => (
+              {props.employees.map(employee => 
+                (employee.name.first.toLowerCase().includes(props.search) || 
+                employee.name.last.toLowerCase().includes(props.search)) ?
                   <tr key={employee.login.uuid}>
                     <td className="img-col"><img className="img-fluid" src={employee.picture.medium} alt="thumbnail"></img></td>
                     <td>{employee.name.first} {employee.name.last}</td>
@@ -27,7 +30,9 @@ function EmployeeTable(props) {
                     <td><a href={"mailto:" + employee.email} target="_blank" rel="noreferrer">{employee.email}</a></td>
                     <td>{employee.phone}</td>
                   </tr>
-                ))}
+              :
+              null
+              )}
             </tbody>
         </table>
       </div>
